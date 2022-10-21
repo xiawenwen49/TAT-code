@@ -27,6 +27,9 @@ numpy==1.18.5
 scikit_learn==0.23.2
 torch==1.9.0
 torch_geometric==1.7.2
+networkx==2.8.7
+torch_sparse==0.6.15
+torch_scatter==2.0.9
 ```
 
 # Usage
