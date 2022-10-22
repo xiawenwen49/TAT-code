@@ -240,8 +240,8 @@ def sample_tri_wedge_neg_sets(G, data_usage=0.5):
     tri_samples = np.array(tri_samples)
     wedge_samples = np.array(wedge_samples)
 
-    assert len(tri_samples.shape) == 2
-    assert len(wedge_samples.shape) == 2
+    # assert len(tri_samples.shape) == 2
+    # assert len(wedge_samples.shape) == 2
 
     neg_samples = sample_neg_sets(G, n_samples=min(len(tri_samples), len(wedge_samples)) )
 
@@ -442,7 +442,7 @@ def get_data_sample(G, set_indice, y, hop_num, max_sp, root_dir, findex):
     """
     pid = os.getpid()
 
-    assert len(set_indice) == 3, "Currently only support 3-node set, e.g., wedges, triads"
+    # assert len(set_indice) == 3, "Currently only support 3-node set, e.g., wedges, triads"
 
     sub_nodes = k_hop_neighbors(G, set_indice, hop_num)
     sub_G = G.subgraph(sub_nodes).copy()
