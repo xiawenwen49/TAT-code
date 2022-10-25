@@ -19,8 +19,7 @@ Experiments on several real-world temporal networks reveal that TAT outperforms 
 
 * python >= 3.7
 
-* Dependency
-In the requirements.text.
+* Dependencies are in the requirements.text.
 
 # Usage
 1. Install
