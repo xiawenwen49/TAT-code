@@ -13,9 +13,12 @@ from tqdm import tqdm
 from itertools import combinations, permutations
 from pathlib import Path
 from torch_geometric.data import Data
-from torch_geometric.data import DataLoader
+# from torch_geometric.data import DataLoader
 from torch.utils.data import Dataset
-from torch_geometric.data.dataloader import Collater
+# from torch_geometric.data.dataloader import Collater
+# from torch_geometric.data import Collater
+from torch_geometric.loader import DataLoader
+
 
 
 def expand_edge_index_and_timestamps(edge_index: List, timestamps: List, set_indice: List) -> Union[np.array, np.array]:
@@ -583,9 +586,12 @@ def load_dataloaders(G, args): # TODO: move to preprocessing
 
 def make_dataloaders(train_set, val_set, test_set, batch_size):
     # num_workers = 1
-    train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True, pin_memory=True, collate_fn=Collater(follow_batch=[], exclude_keys=[]))
-    val_loader = DataLoader(val_set, batch_size=batch_size, shuffle=True, pin_memory=True, collate_fn=Collater(follow_batch=[], exclude_keys=[]))
-    test_loader = DataLoader(test_set, batch_size=batch_size, shuffle=True, pin_memory=True, collate_fn=Collater(follow_batch=[], exclude_keys=[]))
+    # train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True, pin_memory=True, collate_fn=Collater(follow_batch=[], exclude_keys=[]))
+    # val_loader = DataLoader(val_set, batch_size=batch_size, shuffle=True, pin_memory=True, collate_fn=Collater(follow_batch=[], exclude_keys=[]))
+    # test_loader = DataLoader(test_set, batch_size=batch_size, shuffle=True, pin_memory=True, collate_fn=Collater(follow_batch=[], exclude_keys=[]))
+    train_loader = DataLoader(train_set, batch_size=batch_size, shuffle=True, pin_memory=True)
+    val_loader = DataLoader(val_set, batch_size=batch_size, shuffle=True, pin_memory=True)
+    test_loader = DataLoader(test_set, batch_size=batch_size, shuffle=True, pin_memory=True)
     return train_loader, val_loader, test_loader
 
 
